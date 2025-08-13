@@ -1,34 +1,19 @@
-import type { Metadata } from "next";
 import "./globals.css";
-import Nav from "../components/Nav";
+import { Cinzel, Poppins } from "next/font/google";
 
-export const metadata: Metadata = {
-  title: "Quinterotatuador — Tatuajes personalizados",
-  description:
-    "Blackwork, realismo en black & grey y tradicional. Diseños únicos que cuentan tu historia.",
-  openGraph: {
-    title: "Quinterotatuador — Tatuajes personalizados",
-    description:
-      "Blackwork, realismo en black & grey y tradicional. Diseños únicos que cuentan tu historia.",
-    url: "https://tu-dominio.vercel.app",
-    siteName: "Quinterotatuador",
-    locale: "es_ES",
-    type: "website",
-  },
-  metadataBase: new URL("https://tu-dominio.vercel.app"),
+const cinzel = Cinzel({ subsets:["latin"], weight:["700","800","900"], variable:"--font-cinzel" });
+const poppins = Poppins({ subsets:["latin"], weight:["300","400","500","600"], variable:"--font-poppins" });
+
+export const metadata = {
+  title: "Quinterotatuador — Blackwork & Realismo",
+  description: "Tatuajes personalizados con proceso profesional y diseño anatómico.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es" className="scroll-smooth">
-      <body className="min-h-dvh bg-white text-neutral-900 antialiased">
-        <Nav />
-        <main className="mx-auto max-w-6xl p-6">{children}</main>
-        <footer className="mt-16 border-t">
-          <div className="mx-auto max-w-6xl p-6 text-sm text-neutral-500">
-            © {new Date().getFullYear()} Quinterotatuador · Valencia / Puerto Cabello
-          </div>
-        </footer>
+      <body className={`${cinzel.variable} ${poppins.variable} bg-brand-dark text-white antialiased`}>
+        {children}
       </body>
     </html>
   );
