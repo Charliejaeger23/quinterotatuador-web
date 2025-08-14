@@ -1,5 +1,32 @@
-/* contenedor central */
-.container { margin-left:auto; margin-right:auto; width:100%; max-width:1200px; padding-left:1.5rem; padding-right:1.5rem; }
+@import "tailwindcss";
 
-/* tarjeta elegante */
-.card { border-radius:1rem; border:1px solid rgba(255,255,255,.08); background:rgba(255,255,255,.03); box-shadow:0 12px 40px -12px rgba(0,0,0,.45); backdrop-filter:saturate(140%) blur(6px); }
+/* ===== Tokens de marca y tipografía ===== */
+@theme {
+  --color-brand-red: #7A0F0F;
+  --color-brand-dark: #0B0B0B;
+
+  --font-sans: var(--font-poppins, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial);
+  /* Para usar Cinzel en títulos: font-[var(--font-cinzel)] */
+
+  --shadow-card: 0 12px 40px -12px rgb(0 0 0 / 0.45);
+  --max-w-wrapper: 1200px;
+}
+
+/* ===== Utilitarios mínimos ===== */
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: var(--max-w-wrapper);
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.card {
+  overflow: hidden;
+  border-radius: 1rem;
+  border: 1px solid rgb(255 255 255 / 0.08);
+  background: rgb(255 255 255 / 0.03);
+  box-shadow: var(--shadow-card);
+  backdrop-filter: saturate(140%) blur(6px);
+}
