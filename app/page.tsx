@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -30,18 +31,18 @@ export default function Home() {
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-4">
-            <a
+            <Link
               href="#contacto"
               className="px-5 py-3 rounded-xl bg-brand-red hover:brightness-110 transition shadow-lg shadow-black/30"
             >
               Cuéntame tu idea
-            </a>
-            <a
+            </Link>
+            <Link
               href="#portafolio"
               className="px-5 py-3 rounded-xl bg-white/10 hover:bg-white/15 ring-1 ring-white/15 hover:ring-brand-red transition"
             >
               Ver portafolio
-            </a>
+            </Link>
           </div>
 
           <div className="mt-8 flex flex-wrap gap-8 text-sm text-white/70">
