@@ -1,20 +1,39 @@
+import Image from "next/image";
+
 export const metadata = { title: "Portafolio — Quinterotatuador" };
 
-const works = Array.from({ length: 9 }, (_, i) => ({
-  src: `https://picsum.photos/600/600?random=${i + 10}`,
-  alt: `Trabajo ${i + 1}`,
-}));
+const works = [
+  { src: "/img/work-lion-wolf-sleeve.jpg", alt: "Blackwork simbólico" },
+  { src: "/img/work-rose-arm.jpg", alt: "Realismo B&G" },
+  { src: "/img/work-roses-thigh.jpg", alt: "Floral anatómico" },
+  { src: "/img/work-mes-amis-1.jpg", alt: "Mes Amis — Dotwork" },
+  { src: "/img/work-snake.jpg", alt: "Cobra — Detalle" },
+  { src: "/img/proceso-01.jpg", alt: "Proceso" },
+  { src: "/img/proceso-02.jpg", alt: "Proceso 2" },
+  { src: "/img/hero-adrian.jpg", alt: "Adrián tatuando" },
+];
 
 export default function Portafolio() {
   return (
-    <div>
-      <h1 className="mb-4 text-2xl font-semibold">Portafolio</h1>
-      <p className="mb-6 text-neutral-600">Selección de piezas recientes.</p>
+    <section className="container py-16 md:py-24">
+      <h1 className="mb-4 text-2xl md:text-4xl font-[var(--font-cinzel)] font-bold">Portafolio</h1>
+      <p className="mb-6 text-white/70">Selección de piezas recientes.</p>
       <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
         {works.map((w) => (
-          <img key={w.src} src={w.src} alt={w.alt} className="aspect-square w-full rounded-xl object-cover" />
+          <figure key={w.src} className="card">
+            <div className="relative aspect-square">
+              <Image
+                src={w.src}
+                alt={w.alt}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 50vw, 33vw"
+              />
+            </div>
+            <figcaption className="p-3 text-sm text-white/80">{w.alt}</figcaption>
+          </figure>
         ))}
       </div>
-    </div>
+    </section>
   );
 }

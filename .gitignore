@@ -4,6 +4,7 @@ node_modules/
 # Archivos de compilación
 dist/
 build/
+.next/
 
 # Configuración local
 .env
